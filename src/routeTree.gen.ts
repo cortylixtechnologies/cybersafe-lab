@@ -9,8 +9,56 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WifiRouteImport } from './routes/wifi'
+import { Route as UrlInspectRouteImport } from './routes/url-inspect'
+import { Route as TwoFactorRouteImport } from './routes/two-factor'
+import { Route as SocialEngineeringRouteImport } from './routes/social-engineering'
+import { Route as QuizRouteImport } from './routes/quiz'
+import { Route as PhishingRouteImport } from './routes/phishing'
+import { Route as PasswordsRouteImport } from './routes/passwords'
+import { Route as MetadataRouteImport } from './routes/metadata'
 import { Route as IndexRouteImport } from './routes/index'
 
+const WifiRoute = WifiRouteImport.update({
+  id: '/wifi',
+  path: '/wifi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UrlInspectRoute = UrlInspectRouteImport.update({
+  id: '/url-inspect',
+  path: '/url-inspect',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TwoFactorRoute = TwoFactorRouteImport.update({
+  id: '/two-factor',
+  path: '/two-factor',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SocialEngineeringRoute = SocialEngineeringRouteImport.update({
+  id: '/social-engineering',
+  path: '/social-engineering',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const QuizRoute = QuizRouteImport.update({
+  id: '/quiz',
+  path: '/quiz',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PhishingRoute = PhishingRouteImport.update({
+  id: '/phishing',
+  path: '/phishing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PasswordsRoute = PasswordsRouteImport.update({
+  id: '/passwords',
+  path: '/passwords',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MetadataRoute = MetadataRouteImport.update({
+  id: '/metadata',
+  path: '/metadata',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +67,144 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/metadata': typeof MetadataRoute
+  '/passwords': typeof PasswordsRoute
+  '/phishing': typeof PhishingRoute
+  '/quiz': typeof QuizRoute
+  '/social-engineering': typeof SocialEngineeringRoute
+  '/two-factor': typeof TwoFactorRoute
+  '/url-inspect': typeof UrlInspectRoute
+  '/wifi': typeof WifiRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/metadata': typeof MetadataRoute
+  '/passwords': typeof PasswordsRoute
+  '/phishing': typeof PhishingRoute
+  '/quiz': typeof QuizRoute
+  '/social-engineering': typeof SocialEngineeringRoute
+  '/two-factor': typeof TwoFactorRoute
+  '/url-inspect': typeof UrlInspectRoute
+  '/wifi': typeof WifiRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/metadata': typeof MetadataRoute
+  '/passwords': typeof PasswordsRoute
+  '/phishing': typeof PhishingRoute
+  '/quiz': typeof QuizRoute
+  '/social-engineering': typeof SocialEngineeringRoute
+  '/two-factor': typeof TwoFactorRoute
+  '/url-inspect': typeof UrlInspectRoute
+  '/wifi': typeof WifiRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/metadata'
+    | '/passwords'
+    | '/phishing'
+    | '/quiz'
+    | '/social-engineering'
+    | '/two-factor'
+    | '/url-inspect'
+    | '/wifi'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/metadata'
+    | '/passwords'
+    | '/phishing'
+    | '/quiz'
+    | '/social-engineering'
+    | '/two-factor'
+    | '/url-inspect'
+    | '/wifi'
+  id:
+    | '__root__'
+    | '/'
+    | '/metadata'
+    | '/passwords'
+    | '/phishing'
+    | '/quiz'
+    | '/social-engineering'
+    | '/two-factor'
+    | '/url-inspect'
+    | '/wifi'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  MetadataRoute: typeof MetadataRoute
+  PasswordsRoute: typeof PasswordsRoute
+  PhishingRoute: typeof PhishingRoute
+  QuizRoute: typeof QuizRoute
+  SocialEngineeringRoute: typeof SocialEngineeringRoute
+  TwoFactorRoute: typeof TwoFactorRoute
+  UrlInspectRoute: typeof UrlInspectRoute
+  WifiRoute: typeof WifiRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/wifi': {
+      id: '/wifi'
+      path: '/wifi'
+      fullPath: '/wifi'
+      preLoaderRoute: typeof WifiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/url-inspect': {
+      id: '/url-inspect'
+      path: '/url-inspect'
+      fullPath: '/url-inspect'
+      preLoaderRoute: typeof UrlInspectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/two-factor': {
+      id: '/two-factor'
+      path: '/two-factor'
+      fullPath: '/two-factor'
+      preLoaderRoute: typeof TwoFactorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/social-engineering': {
+      id: '/social-engineering'
+      path: '/social-engineering'
+      fullPath: '/social-engineering'
+      preLoaderRoute: typeof SocialEngineeringRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/quiz': {
+      id: '/quiz'
+      path: '/quiz'
+      fullPath: '/quiz'
+      preLoaderRoute: typeof QuizRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/phishing': {
+      id: '/phishing'
+      path: '/phishing'
+      fullPath: '/phishing'
+      preLoaderRoute: typeof PhishingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/passwords': {
+      id: '/passwords'
+      path: '/passwords'
+      fullPath: '/passwords'
+      preLoaderRoute: typeof PasswordsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/metadata': {
+      id: '/metadata'
+      path: '/metadata'
+      fullPath: '/metadata'
+      preLoaderRoute: typeof MetadataRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +217,14 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  MetadataRoute: MetadataRoute,
+  PasswordsRoute: PasswordsRoute,
+  PhishingRoute: PhishingRoute,
+  QuizRoute: QuizRoute,
+  SocialEngineeringRoute: SocialEngineeringRoute,
+  TwoFactorRoute: TwoFactorRoute,
+  UrlInspectRoute: UrlInspectRoute,
+  WifiRoute: WifiRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
