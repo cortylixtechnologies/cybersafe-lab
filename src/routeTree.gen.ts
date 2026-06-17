@@ -13,6 +13,7 @@ import { Route as WifiRouteImport } from './routes/wifi'
 import { Route as UrlInspectRouteImport } from './routes/url-inspect'
 import { Route as TwoFactorRouteImport } from './routes/two-factor'
 import { Route as SocialEngineeringRouteImport } from './routes/social-engineering'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as QuizRouteImport } from './routes/quiz'
 import { Route as PhishingRouteImport } from './routes/phishing'
 import { Route as PasswordsRouteImport } from './routes/passwords'
@@ -37,6 +38,11 @@ const TwoFactorRoute = TwoFactorRouteImport.update({
 const SocialEngineeringRoute = SocialEngineeringRouteImport.update({
   id: '/social-engineering',
   path: '/social-engineering',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const QuizRoute = QuizRouteImport.update({
@@ -71,6 +77,7 @@ export interface FileRoutesByFullPath {
   '/passwords': typeof PasswordsRoute
   '/phishing': typeof PhishingRoute
   '/quiz': typeof QuizRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/social-engineering': typeof SocialEngineeringRoute
   '/two-factor': typeof TwoFactorRoute
   '/url-inspect': typeof UrlInspectRoute
@@ -82,6 +89,7 @@ export interface FileRoutesByTo {
   '/passwords': typeof PasswordsRoute
   '/phishing': typeof PhishingRoute
   '/quiz': typeof QuizRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/social-engineering': typeof SocialEngineeringRoute
   '/two-factor': typeof TwoFactorRoute
   '/url-inspect': typeof UrlInspectRoute
@@ -94,6 +102,7 @@ export interface FileRoutesById {
   '/passwords': typeof PasswordsRoute
   '/phishing': typeof PhishingRoute
   '/quiz': typeof QuizRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/social-engineering': typeof SocialEngineeringRoute
   '/two-factor': typeof TwoFactorRoute
   '/url-inspect': typeof UrlInspectRoute
@@ -107,6 +116,7 @@ export interface FileRouteTypes {
     | '/passwords'
     | '/phishing'
     | '/quiz'
+    | '/sitemap.xml'
     | '/social-engineering'
     | '/two-factor'
     | '/url-inspect'
@@ -118,6 +128,7 @@ export interface FileRouteTypes {
     | '/passwords'
     | '/phishing'
     | '/quiz'
+    | '/sitemap.xml'
     | '/social-engineering'
     | '/two-factor'
     | '/url-inspect'
@@ -129,6 +140,7 @@ export interface FileRouteTypes {
     | '/passwords'
     | '/phishing'
     | '/quiz'
+    | '/sitemap.xml'
     | '/social-engineering'
     | '/two-factor'
     | '/url-inspect'
@@ -141,6 +153,7 @@ export interface RootRouteChildren {
   PasswordsRoute: typeof PasswordsRoute
   PhishingRoute: typeof PhishingRoute
   QuizRoute: typeof QuizRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SocialEngineeringRoute: typeof SocialEngineeringRoute
   TwoFactorRoute: typeof TwoFactorRoute
   UrlInspectRoute: typeof UrlInspectRoute
@@ -175,6 +188,13 @@ declare module '@tanstack/react-router' {
       path: '/social-engineering'
       fullPath: '/social-engineering'
       preLoaderRoute: typeof SocialEngineeringRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/quiz': {
@@ -221,6 +241,7 @@ const rootRouteChildren: RootRouteChildren = {
   PasswordsRoute: PasswordsRoute,
   PhishingRoute: PhishingRoute,
   QuizRoute: QuizRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   SocialEngineeringRoute: SocialEngineeringRoute,
   TwoFactorRoute: TwoFactorRoute,
   UrlInspectRoute: UrlInspectRoute,
