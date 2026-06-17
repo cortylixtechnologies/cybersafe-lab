@@ -77,11 +77,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "CyberSafe Awareness Lab — Interactive Cybersecurity Training" },
+      { name: "description", content: "Learn cybersecurity through safe, interactive simulations: phishing, passwords, 2FA, Wi-Fi safety, and more." },
+      { name: "author", content: "CyberSafe Awareness Lab" },
+      { property: "og:title", content: "CyberSafe Awareness Lab" },
+      { property: "og:description", content: "Interactive cybersecurity awareness training for everyone." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
@@ -101,7 +101,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
         <HeadContent />
       </head>
