@@ -206,7 +206,7 @@ function Smishing() {
               <Tip title="Couriers don't text random links">Track parcels by typing the courier's official site yourself.</Tip>
               <Tip title="Read the domain right-to-left">The real owner is the part before the first single slash: <span className="font-mono">secure-pay24.co</span>, not PostaLink.</Tip>
               <Tip title="Tiny fees are the tell">Scammers ask for pocket change so you don't stop to think.</Tip>
-              <Tip title="If you tapped it</>">Change the password, revoke active sessions, and watch your card statement.</Tip>
+              <Tip title="If you tapped it">Change the password, revoke active sessions, and watch your card statement.</Tip>
             </div>
 
             <div className="mt-6 flex justify-center">
