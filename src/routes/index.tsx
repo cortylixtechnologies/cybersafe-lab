@@ -125,7 +125,7 @@ function Home() {
         <div className="flex items-end justify-between flex-wrap gap-3 mb-8">
           <div>
             <div className="text-xs uppercase tracking-[0.2em] text-neon">Training Modules</div>
-            <h2 className="mt-2 text-2xl sm:text-4xl font-bold">Eight ways to stay safer online</h2>
+            <h2 className="mt-2 text-2xl sm:text-4xl font-bold">Ten ways to stay safer online</h2>
           </div>
           <div className="text-sm text-muted-foreground max-w-sm">
             Work through them in order, or jump to the topic you need most. Your progress is saved on this device.

@@ -84,7 +84,7 @@ function WifiDemo() {
           <Tip title="Avoid sensitive logins">Don't access banking on unknown Wi-Fi. Use mobile data instead.</Tip>
         </div>
 
-        <ModuleComplete id="wifi" nextPath="/quiz" nextLabel="Final Quiz" />
+        <ModuleComplete id="wifi" nextPath="/smishing" nextLabel="Smishing 3D Phone" />
       </section>
     </Layout>
   );
