@@ -17,7 +17,8 @@ export const Route = createFileRoute("/")({
 
 const ICONS: Record<string, any> = {
   phishing: Fish, passwords: KeyRound, "url-inspect": Link2, "2fa": Smartphone,
-  social: Users, metadata: ImageIcon, wifi: Wifi, quiz: ListChecks,
+  social: Users, metadata: ImageIcon, wifi: Wifi, smishing: MessageSquare,
+  breach: Database, quiz: ListChecks,
 };
 
 const DESC: Record<string, string> = {
@@ -28,6 +29,8 @@ const DESC: Record<string, string> = {
   social: "Discover how attackers piece together public info to target you.",
   metadata: "Understand hidden data inside the photos and files you share.",
   wifi: "Choose safe networks and avoid rogue hotspots in public places.",
+  smishing: "Tap a scam SMS on a 3D phone and watch what the attacker collects.",
+  breach: "See what leaks in a data breach and how to recover fast.",
   quiz: "Test your knowledge with a 20-question awareness challenge.",
 };
 
