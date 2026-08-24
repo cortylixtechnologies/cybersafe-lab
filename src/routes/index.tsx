@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Layout } from "@/components/Layout";
 import { MODULES, useProgress } from "@/lib/progress";
 import {
-  Shield, Fish, KeyRound, Link2, Smartphone, Users, Image as ImageIcon, Wifi, ListChecks, ArrowRight, Sparkles, Lock, Eye,
+  Shield, Fish, KeyRound, Link2, Smartphone, Users, Image as ImageIcon, Wifi, ListChecks, ArrowRight, Sparkles, Lock, Eye, MessageSquare, Database,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
