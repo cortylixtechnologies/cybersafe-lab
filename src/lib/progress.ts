@@ -8,6 +8,8 @@ export const MODULES = [
   { id: "social", label: "Social Eng.", path: "/social-engineering" },
   { id: "metadata", label: "Metadata", path: "/metadata" },
   { id: "wifi", label: "Public Wi-Fi", path: "/wifi" },
+  { id: "smishing", label: "Smishing 3D", path: "/smishing" },
+  { id: "breach", label: "Data Breach", path: "/breach" },
   { id: "quiz", label: "Final Quiz", path: "/quiz" },
 ] as const;
 

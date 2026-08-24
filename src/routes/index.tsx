@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Layout } from "@/components/Layout";
 import { MODULES, useProgress } from "@/lib/progress";
 import {
-  Shield, Fish, KeyRound, Link2, Smartphone, Users, Image as ImageIcon, Wifi, ListChecks, ArrowRight, Sparkles, Lock, Eye,
+  Shield, Fish, KeyRound, Link2, Smartphone, Users, Image as ImageIcon, Wifi, ListChecks, ArrowRight, Sparkles, Lock, Eye, MessageSquare, Database,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -17,7 +17,8 @@ export const Route = createFileRoute("/")({
 
 const ICONS: Record<string, any> = {
   phishing: Fish, passwords: KeyRound, "url-inspect": Link2, "2fa": Smartphone,
-  social: Users, metadata: ImageIcon, wifi: Wifi, quiz: ListChecks,
+  social: Users, metadata: ImageIcon, wifi: Wifi, smishing: MessageSquare,
+  breach: Database, quiz: ListChecks,
 };
 
 const DESC: Record<string, string> = {
@@ -28,6 +29,8 @@ const DESC: Record<string, string> = {
   social: "Discover how attackers piece together public info to target you.",
   metadata: "Understand hidden data inside the photos and files you share.",
   wifi: "Choose safe networks and avoid rogue hotspots in public places.",
+  smishing: "Tap a scam SMS on a 3D phone and watch what the attacker collects.",
+  breach: "See what leaks in a data breach and how to recover fast.",
   quiz: "Test your knowledge with a 20-question awareness challenge.",
 };
 
@@ -122,7 +125,7 @@ function Home() {
         <div className="flex items-end justify-between flex-wrap gap-3 mb-8">
           <div>
             <div className="text-xs uppercase tracking-[0.2em] text-neon">Training Modules</div>
-            <h2 className="mt-2 text-2xl sm:text-4xl font-bold">Eight ways to stay safer online</h2>
+            <h2 className="mt-2 text-2xl sm:text-4xl font-bold">Ten ways to stay safer online</h2>
           </div>
           <div className="text-sm text-muted-foreground max-w-sm">
             Work through them in order, or jump to the topic you need most. Your progress is saved on this device.

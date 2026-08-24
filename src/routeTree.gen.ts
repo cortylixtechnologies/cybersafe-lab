@@ -13,11 +13,13 @@ import { Route as WifiRouteImport } from './routes/wifi'
 import { Route as UrlInspectRouteImport } from './routes/url-inspect'
 import { Route as TwoFactorRouteImport } from './routes/two-factor'
 import { Route as SocialEngineeringRouteImport } from './routes/social-engineering'
+import { Route as SmishingRouteImport } from './routes/smishing'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as QuizRouteImport } from './routes/quiz'
 import { Route as PhishingRouteImport } from './routes/phishing'
 import { Route as PasswordsRouteImport } from './routes/passwords'
 import { Route as MetadataRouteImport } from './routes/metadata'
+import { Route as BreachRouteImport } from './routes/breach'
 import { Route as IndexRouteImport } from './routes/index'
 
 const WifiRoute = WifiRouteImport.update({
@@ -38,6 +40,11 @@ const TwoFactorRoute = TwoFactorRouteImport.update({
 const SocialEngineeringRoute = SocialEngineeringRouteImport.update({
   id: '/social-engineering',
   path: '/social-engineering',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SmishingRoute = SmishingRouteImport.update({
+  id: '/smishing',
+  path: '/smishing',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -65,6 +72,11 @@ const MetadataRoute = MetadataRouteImport.update({
   path: '/metadata',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BreachRoute = BreachRouteImport.update({
+  id: '/breach',
+  path: '/breach',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -73,11 +85,13 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/breach': typeof BreachRoute
   '/metadata': typeof MetadataRoute
   '/passwords': typeof PasswordsRoute
   '/phishing': typeof PhishingRoute
   '/quiz': typeof QuizRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/smishing': typeof SmishingRoute
   '/social-engineering': typeof SocialEngineeringRoute
   '/two-factor': typeof TwoFactorRoute
   '/url-inspect': typeof UrlInspectRoute
@@ -85,11 +99,13 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/breach': typeof BreachRoute
   '/metadata': typeof MetadataRoute
   '/passwords': typeof PasswordsRoute
   '/phishing': typeof PhishingRoute
   '/quiz': typeof QuizRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/smishing': typeof SmishingRoute
   '/social-engineering': typeof SocialEngineeringRoute
   '/two-factor': typeof TwoFactorRoute
   '/url-inspect': typeof UrlInspectRoute
@@ -98,11 +114,13 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/breach': typeof BreachRoute
   '/metadata': typeof MetadataRoute
   '/passwords': typeof PasswordsRoute
   '/phishing': typeof PhishingRoute
   '/quiz': typeof QuizRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/smishing': typeof SmishingRoute
   '/social-engineering': typeof SocialEngineeringRoute
   '/two-factor': typeof TwoFactorRoute
   '/url-inspect': typeof UrlInspectRoute
@@ -112,11 +130,13 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/breach'
     | '/metadata'
     | '/passwords'
     | '/phishing'
     | '/quiz'
     | '/sitemap.xml'
+    | '/smishing'
     | '/social-engineering'
     | '/two-factor'
     | '/url-inspect'
@@ -124,11 +144,13 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/breach'
     | '/metadata'
     | '/passwords'
     | '/phishing'
     | '/quiz'
     | '/sitemap.xml'
+    | '/smishing'
     | '/social-engineering'
     | '/two-factor'
     | '/url-inspect'
@@ -136,11 +158,13 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/breach'
     | '/metadata'
     | '/passwords'
     | '/phishing'
     | '/quiz'
     | '/sitemap.xml'
+    | '/smishing'
     | '/social-engineering'
     | '/two-factor'
     | '/url-inspect'
@@ -149,11 +173,13 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BreachRoute: typeof BreachRoute
   MetadataRoute: typeof MetadataRoute
   PasswordsRoute: typeof PasswordsRoute
   PhishingRoute: typeof PhishingRoute
   QuizRoute: typeof QuizRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SmishingRoute: typeof SmishingRoute
   SocialEngineeringRoute: typeof SocialEngineeringRoute
   TwoFactorRoute: typeof TwoFactorRoute
   UrlInspectRoute: typeof UrlInspectRoute
@@ -188,6 +214,13 @@ declare module '@tanstack/react-router' {
       path: '/social-engineering'
       fullPath: '/social-engineering'
       preLoaderRoute: typeof SocialEngineeringRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/smishing': {
+      id: '/smishing'
+      path: '/smishing'
+      fullPath: '/smishing'
+      preLoaderRoute: typeof SmishingRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sitemap.xml': {
@@ -225,6 +258,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MetadataRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/breach': {
+      id: '/breach'
+      path: '/breach'
+      fullPath: '/breach'
+      preLoaderRoute: typeof BreachRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -237,11 +277,13 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BreachRoute: BreachRoute,
   MetadataRoute: MetadataRoute,
   PasswordsRoute: PasswordsRoute,
   PhishingRoute: PhishingRoute,
   QuizRoute: QuizRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SmishingRoute: SmishingRoute,
   SocialEngineeringRoute: SocialEngineeringRoute,
   TwoFactorRoute: TwoFactorRoute,
   UrlInspectRoute: UrlInspectRoute,
@@ -250,3 +292,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
